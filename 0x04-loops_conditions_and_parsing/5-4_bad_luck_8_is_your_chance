@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#Script that prints "Best School" ten times but if 8 goodluck.
+i=0
+while((i < 10))
+do
+	((i++))
+	if [ $i -eq 4 ]
+	then
+		echo "bad luck"
+	elif [ $i -eq 8 ]
+	then
+		echo "Best School"
+	else
+		echo "Best School"
+	fi
+done
