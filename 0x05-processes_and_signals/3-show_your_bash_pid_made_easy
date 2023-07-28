@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 #Bash script that displays the PID
-pid=$$
-echo "$pid bash"
+pgrep bash | sed -e 's/$/ bash/'
