@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Script to display processes with bash word
+ps -aux | grep bash
