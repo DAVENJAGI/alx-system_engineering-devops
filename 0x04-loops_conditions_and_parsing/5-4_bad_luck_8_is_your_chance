@@ -9,7 +9,7 @@ do
 		echo "bad luck"
 	elif [ $i -eq 8 ]
 	then
-		echo "Best School"
+		echo "good luck"
 	else
 		echo "Best School"
 	fi
