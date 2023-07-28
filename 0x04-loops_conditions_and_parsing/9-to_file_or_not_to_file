@@ -4,7 +4,7 @@ name=school
 if [ ! -e $name ]; then
 	echo "school file exists"
 else
-	echo "school file does not exist"
+	echo "schoolfile does not exist"
 	exit 1
 fi
 if [ ! -s $name ]; then
