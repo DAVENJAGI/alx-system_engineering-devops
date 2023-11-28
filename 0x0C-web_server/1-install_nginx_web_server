@@ -2,6 +2,7 @@
 #A file on how to configure a nginx server
 #listen to port 80
 #use sudo to restart server
+
 apt-get update
 apt-get install -y nginx
 
