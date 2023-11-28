@@ -8,4 +8,4 @@ sudo apt-get install -y nginx
 
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
-sudo service nginx restart
+sudo service nginx start
