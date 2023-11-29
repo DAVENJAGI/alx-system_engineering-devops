@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #A file on how to configure a nginx server
 
-sudo apt-get update
+sudo apt-get -y update
 
 sudo apt-get install -y nginx
+ufw allow "NGINX HTTP"
 
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
-service nginx restart
-sudo service reload
+sudo service nginx restart
