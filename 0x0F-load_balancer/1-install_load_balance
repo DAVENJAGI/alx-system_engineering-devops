@@ -15,6 +15,6 @@ backend backend-servers
 	option forwardfor
 	server [STUDENT_ID]-web-01 18.214.87.100 check
 	server [SYUDENT_ID]-web-02 34.224.63.130 check
-" >> /etc/haproxy/haproxy/cfg
+" >> /etc/haproxy/haproxy.cfg
 
 sudo service haproxy start
