@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Bash script that configures a new Ubuntu machine
+# Configure HAproxy to send traffic to web-01 & web-02
+# Use roundrobin algorithm for distribution
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+printf %s "
+backend web-servers
+        balance roundrobin
+        option forwardfor
+        server studentid-web-01 100.25.133:80 check
+        server studentid-web-02 34.224.63.130:80 check
+frontend haproxy_balancer
+         bind *:80
+         mode http
+         default_backend web-servers
+" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
