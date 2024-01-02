@@ -36,7 +36,7 @@ def todo_list():
     # print the title of each completed task
     for task in to_do_data:
         if task["completed"]:
-            print('\t' + task["title"])
+            print('\t' + "" + task["title"])
 
 
 if __name__ == "__main__":
