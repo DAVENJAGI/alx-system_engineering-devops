@@ -24,7 +24,7 @@ def dump_to_json(employee_ID):
     dict_list = []
     for task in to_dos:
         to_do = {
-                "task": task["title"], "completed": str(task["completed"]),
+                "task": task["title"], "completed": task["completed"],
                 "username": user["username"]
                 }
         dict_list.append(to_do)
