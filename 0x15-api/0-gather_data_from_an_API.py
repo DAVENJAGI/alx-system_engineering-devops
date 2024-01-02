@@ -6,12 +6,11 @@ import json
 import requests
 import sys
 
-employee_ID = sys.argv[1]
-
 
 def todo_list(employee_ID):
     """A function in REST API for to do list progress"""
 
+    employee_ID = sys.argv[1]
     # a get request to get the users data
     url = f"https://jsonplaceholder.typicode.com/users/{employee_ID}"
     user_response = requests.get(url)
