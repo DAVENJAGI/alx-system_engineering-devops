@@ -28,7 +28,7 @@ def dump_to_json(employee_ID):
                      str(task["completed"]), "username": user["username"]}
                     for task in to_dos]
                 }
-        json.dump(data, file, indent=4)
+        json.dump(data, file)
 
 
 if __name__ == "__main__":
