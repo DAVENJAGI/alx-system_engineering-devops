@@ -9,7 +9,7 @@ import sys
 
 def todo_list():
     """A function in REST API for to do list progress"""
-    employee_ID = sys.argv[1]
+    employee_ID = int(sys.argv[1])
 
     # a get request to get the users data
     url = f"https://jsonplaceholder.typicode.com/users/{employee_ID}"
