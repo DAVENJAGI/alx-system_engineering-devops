@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Api to import number of employees
+and takes an argument employee_ID"""
 
 import json
 import requests
