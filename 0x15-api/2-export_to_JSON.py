@@ -25,7 +25,7 @@ def dump_to_json(employee_ID):
         data = {
                 employee_ID: [
                     {"task": task["title"], "completed":
-                     str(task["completed"]), "username": user["name"]}
+                     str(task["completed"]), "username": user["username"]}
                     for task in to_dos]
                 }
         json.dump(data, file, indent=4)
