@@ -12,19 +12,19 @@ import sys
 def change_to_csv(employee_ID):
     """Function that converts data to csv format"""
     # a get request to get the users data
-    url = f"https://jsonplaceholder.typicode.com/users/{employee_ID}"
+    url = f"https://jsonplaceholder.typicode.com/users?id="
     user_response = requests.get(url)
 
     url_1 = f'https://jsonplaceholder.typicode.com/users/{employee_ID}/todos'
     user_response_1 = requests.get(url_1)
-    to_data = user_response_1.json()
+    to_dos = user_response_1.json()
 
     f_name = "{}.csv".format(employee_ID)
     with open(f_name, "w") as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-        for task in to_data:
+        for to_do in to_dos:
             writer.writerow([user["id"], user["username"],
-                             to_data["completed"], to_data["title"]])
+                             to_do["completed"], to_do["title"]])
 
 
 if __name__ == "__main__":
