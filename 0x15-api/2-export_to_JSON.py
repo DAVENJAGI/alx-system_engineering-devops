@@ -16,19 +16,23 @@ def dump_to_json(employee_ID):
     user_response = requests.get(url)
     user = user_response.json()
 
-    url_1 = f'https://jsonplaceholder.typicode.com/users/{employee_ID}/todos'
-    user_response_1 = requests.get(url_1)
+    url = f'https://jsonplaceholder.typicode.com/users/{employee_ID}/todos'
+    user_response_1 = requests.get(url)
     to_dos = user_response_1.json()
 
     f_name = "{}.json".format(employee_ID)
-    with open(f_name, "w") as file:
-        data = {
-                employee_ID: [
-                    {"task": task["title"], "completed":
-                     str(task["completed"]), "username": user["username"]}
-                    for task in to_dos]
+    dict_list = []
+    for task in to_dos:
+        to_do = {
+                "task": task["title"], "completed": str(task["completed"]),
+                "username": user["username"]
                 }
-        json.dump(data, file)
+        dict_list.append(to_do)
+
+        data = {str(user["id"]): dict_list}
+
+        with open(f_name, "w") as file:
+            json.dump(data, file)
 
 
 if __name__ == "__main__":
