@@ -19,17 +19,8 @@ url_1 = f'https://jsonplaceholder.typicode.com/todos/{employee_ID}'
 to_do = requests.get(url_1)
 to_do_data = to_do.json()
 
-EMPLOYEE_NAME = user_data['name']
-no_of_tasks = str(len(to_do_data))
-completed_tasks = str(sum(1 for task in no_of_tasks if task.get("completed")))
-print("completed_tasks done")
+with open("file.json", "w") as file:
+    json.dump(to_do_data, file)
+print("to_do_data loaded to file")
 
-print ('Employee {} is done with tasks {}/{}'.format(EMPLOYEE_NAME, completed_tasks, no_of_tasks))
 
-#print the title of each completed task
-for task in to_do_data:
-    if task["completed"]:
-        print('\t' + task["title"])
-
-if __name__ == "__main__":
-    pass
