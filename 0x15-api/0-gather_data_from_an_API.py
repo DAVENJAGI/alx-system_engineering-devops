@@ -29,7 +29,7 @@ def todo_list(employee_ID):
     completed_tasks = str(sum(1 for task in to_do_data
                               if task.get("completed")))
 
-    print('Employee {} is done with tasks ({}/{}):'
+    print('Employee {} is done with tasks({}/{}):'
           .format(EMPLOYEE_NAME, completed_tasks, no_of_tasks))
 
     # print the title of each completed task
