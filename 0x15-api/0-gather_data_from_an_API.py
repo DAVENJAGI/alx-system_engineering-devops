@@ -6,27 +6,28 @@ import sys
 
 employee_ID = sys.argv[1]
 
-#a get request to get the users data
-url =  f"https://jsonplaceholder.typicode.com/users/{employee_ID}"
+# a get request to get the users data
+url = f"https://jsonplaceholder.typicode.com/users/{employee_ID}"
 user_response = requests.get(url)
 
-#parsing the user data to json format
+# parsing the user data to json format
 user_data = user_response.json()
 
-#a get request to get the users to do dataand parsing it to json
-url_1 = f'https://jsonplaceholder.typicode.com/todos/{employee_ID}'
+""" a get request to get the user's
+to do data from /users/employee_ID and parsing it to json"""
+url_1 = f'https://jsonplaceholder.typicode.com/users/{employee_ID}/todos'
 
 to_do = requests.get(url_1)
 to_do_data = to_do.json()
 
 EMPLOYEE_NAME = user_data['name']
 no_of_tasks = str(len(to_do_data))
-completed_tasks = str(sum(1 for task in no_of_tasks if task.get("completed")))
-print("completed_tasks done")
+completed_tasks = str(sum(1 for task in to_do_data if task.get("completed")))
 
-print ('Employee {} is done with tasks {}/{}'.format(EMPLOYEE_NAME, completed_tasks, no_of_tasks))
+print('Employee {} is done with tasks {}/{}'
+      .format(EMPLOYEE_NAME, completed_tasks, no_of_tasks))
 
-#print the title of each completed task
+# print the title of each completed task
 for task in to_do_data:
     if task["completed"]:
         print('\t' + task["title"])
