@@ -7,9 +7,8 @@ import requests
 import sys
 
 
-def todo_list():
+def todo_list(employee_ID):
     """A function in REST API for to do list progress"""
-    employee_ID = int(sys.argv[1])
 
     # a get request to get the users data
     url = f"https://jsonplaceholder.typicode.com/users/{employee_ID}"
@@ -40,4 +39,4 @@ def todo_list():
 
 
 if __name__ == "__main__":
-    todo_list()
+    todo_list(int(sys.argv[1]))
