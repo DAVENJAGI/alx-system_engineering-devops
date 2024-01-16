@@ -14,13 +14,12 @@ def top_ten(subreddit):
 
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-agent": "Linux:MyRedditScript:0.1"}
+    response = get(url, headers=headers)
+    reslt = response.json()
 
     try:
-        response = get(url, headers=headers)
-        data = response.json()
-        posts = data.get("posts").get("children")
-        for post in posts:
-            return post.get("posts").get("title")
-
+        data = results.get('data').get('children')
+        for dat in data:
+            print(dat.get('data').get('title'))
     except Exception:
-        return None
+        print("None")
