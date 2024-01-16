@@ -4,19 +4,25 @@ A file that contains a function that queries the reddit API
 and returns the number of subscribers
 """
 
-import requests
-import sys
+from requests import get
 
 
 def number_of_subscribers(subreddit):
-    """function to query and get the number of subscribers"""
-    url = "https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {"User-agent": "Linux:MyRedditScript:0.1"}
-    response = requests.get(url, headers=headers)
-    data = response.json()
+    """
+    function that queries the Reddit API and returns the number of subscribers
+    (not active users, total subscribers) for a given subreddit.
+    """
+
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
+
+    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    response = get(url, headers=user_agent)
+    results = response.json()
 
     try:
-        return data["data"]["subscribers"]
+        return results.get('data').get('subscribers')
 
     except Exception:
         return 0
