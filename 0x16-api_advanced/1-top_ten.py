@@ -10,16 +10,16 @@ from requests import get
 def top_ten(subreddit):
     """function to query and get the number of subscribers"""
     if subreddit is None or not isinstance(subreddit, str):
-        print(None)
+        print("None")
 
     url = 'https://reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
-    headers = {'User-agent': "Linux:MyRedditScript:0.1"}
+    headers = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
     response = get(url, headers=headers)
     results = response.json()
 
     try:
         data = results.get('data').get('children')
-        for dat in data:
-            print(dat.get('data').get('title'))
+        for datii in data:
+            print(datii.get('data').get('title'))
     except Exception:
         print("None")
