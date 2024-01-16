@@ -12,12 +12,12 @@ def top_ten(subreddit):
     if subreddit is None or not isinstance(subreddit, str):
         print (None)
 
-    url = "https://www.reddit.com/r/{subreddit}/about.json"
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-agent": "Linux:MyRedditScript:0.1"}
-    response = get(url, headers=headers)
-    data = response.json()
-    
+
     try:
+        response = get(url, headers=headers)
+        data = response.json()
         posts = data.get("posts").get("children")
         for post in posts:
             return post.get("posts").get("title")
