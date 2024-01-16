@@ -12,7 +12,7 @@ def top_ten(subreddit):
     if subreddit is None or not isinstance(subreddit, str):
         print (None)
 
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/about.json?limit=10".format(subreddit)
     headers = {"User-agent": "Linux:MyRedditScript:0.1"}
     response = get(url, headers=headers)
     reslt = response.json()
