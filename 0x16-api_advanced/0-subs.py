@@ -10,12 +10,16 @@ import sys
 
 def number_of_subscribers(subreddit):
     """function to query and get the number of subscribers"""
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    response = requests.get(url, allow_redirects=False)
+    url = "https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {"User-agent": "Linux:MyRedditScript:0.1"}
+    response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         data = response.json()
-        return data["data"]["subscribers"]
+        if subreddit is None:
+            return 0
+        else:
+            return data["data"]["subscribers"]
 
     else:
         return 0
