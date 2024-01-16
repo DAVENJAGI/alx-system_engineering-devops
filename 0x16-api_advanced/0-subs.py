@@ -7,8 +7,6 @@ and returns the number of subscribers
 import requests
 import sys
 
-subreddit = sys.argv[1]
-
 
 def number_of_subscribers(subreddit):
     """function to query and get the number of subscribers"""
