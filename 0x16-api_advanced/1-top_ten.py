@@ -9,6 +9,7 @@ from requests import get
 
 def top_ten(subreddit):
     """function to query and get the number of subscribers"""
+    
     if subreddit is None or not isinstance(subreddit, str):
         print("None")
 
